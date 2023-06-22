@@ -86,7 +86,42 @@ join fabricantes as f
 on f.codigo =a.fabricante group by f.nombre;
 
 #14. Obtener los nombres de los fabricantes que ofrezcan productos cuyo precio medio sea mayor o igual a 150 €. Indicar el precio medio.
-select f.nombre
+select f.nombre,avg(a.precio)
 from articulo as a
 join fabricantes as f
-on f.codigo = a.fabricante where avg(a.precio) >= 15000 group by f.nombre ;
+on f.codigo = a.fabricante
+where a.precio >=150000
+group by f.nombre;
+
+#15. Obtener el nombre y precio del artículo más barato.
+select nombre, precio
+from articulo
+where precio = (select min(precio) from articulo);
+
+#16. Obtener una lista con el nombre y precio de los artículos más caros de cada proveedor (incluyendo el nombre del proveedor).
+select f.nombre as proveedor ,a.nombre as modelo,a.precio
+from articulo as a
+join fabricantes as f
+on f.codigo = a.fabricante 
+and a.precio = (select max(a.precio) 
+from articulo as a
+where a.fabricante = f.codigo);
+
+#17. Añadir un nuevo producto: rs5 de 100000 (del fabricante 2).
+insert into articulo values(11,'rs5',100000,2);
+
+#18. Cambiar el nombre del producto 8 a “Impresora Laser”.
+update articulo set nombre = 'G', precio = 50000 where codigo = 8;
+
+#19. Aplicar un descuento del 10 % a todos los productos.
+select nombre,(precio-(precio*0.1))
+from articulo;
+
+#20. Aplicar un descuento de 10 € a todos los productos cuyo precio sea mayor o igual a 120.
+select nombre, if(precio >= 120000,precio - 10000,precio)
+from articulo;
+
+#21. Borrar el producto de código 6
+delete from articulo where codigo = 6;
+
+select * from articulo
