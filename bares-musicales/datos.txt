@@ -1,0 +1,37 @@
+show da
+
+  
+  # Datos de la LOCALIDAD
+  insert into localidad values (15002, 'La Coruña');
+  insert into localidad values (15165, 'Bergondo');
+  insert into localidad values (15160, 'Sada');
+  insert into localidad values (15170, 'Betanzos');
+  insert into localidad values (15001, 'Ayuntamiento Coruña');
+  insert into localidad values (15004, 'Centro Coruña');  
+  
+  # Datos del PUB
+insert into pub values('01','Borges','Homologada1', 'Polvorin','2020-05-15', 'HOR1', '15002');
+insert into pub values('02','Agua Mineral','Comprada', 'Orzan','1985-05-15', 'HOR1', '15001'); 
+insert into pub values('03','Grietas','Robada', 'Matogrande','2002-02-10', 'HOR2', '15004'); 
+insert into pub values('04','OH Coruña','Homologada', 'Orillamar','2020-05-15','HOR1', '15002');  
+insert into pub values('05','Borges','Homologada1', 'Polvorin','2020-05-15', 'HOR1', '15002');
+insert into pub values('06','Nueces','No  Homologada', 'Vereda','2010-05-15', 'HOR4', '15002');
+  
+ # Datos del TITULAR
+insert into titular values ('12345678X', 'Manolo','Orillamar','01');
+insert into titular values ('23456789c', 'Pepe','Riobao', '02');
+insert into titular values ('56498712x', 'Tomas','Cacharrete', '02');
+insert into titular values ('5644564c','Antonio','Mandin','01');
+ 
+ # Datos EMPLEADO
+insert into empleado values ('12356434X', 'Manuel','Orillamar');
+insert into empleado values ('45345678X', 'Lucas','Orzan');
+insert into empleado values ('12348876X', 'Luis','Monte Alto');
+
+# DATOS EMPLEADOS DEL PUB
+insert into pub_empleado values('01','12348876X','CAMARERO');
+insert into pub_empleado values('03','12356434X','SEGURIDAD');
+insert into pub_empleado values('04','45345678X','CAMARERO');
+insert into pub_empleado values('05','46345678X','tocada de huevos');
+ 
+  
